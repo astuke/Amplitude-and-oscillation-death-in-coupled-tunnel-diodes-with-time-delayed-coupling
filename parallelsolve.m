@@ -1,4 +1,7 @@
-[t,Y]=ode45('parallel',[0, 10],[ 1 2 3 4 5 6]); %call the file
+function parallelsolve()
+
+for A=-10:10 % A corresponds to the input voltage
+[t,Y]=ode45(@(t,Y) parallel(t,Y,A),[0, 10],[ 0 1 -1 1 1 0]);
 
 y1=Y(:,1);
 y2=Y(:,2);
@@ -6,8 +9,6 @@ y3=Y(:,3);
 y4=Y(:,4);
 y5=Y(:,5);
 y6=Y(:,6);
-
-
 
 hold on;
 figure(4);
@@ -34,3 +35,6 @@ set(j, 'Fontsize', 30);
 box on;
 grid on;
 rotate3d on;
+
+end
+end
