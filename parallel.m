@@ -1,9 +1,7 @@
-function dY=parallel(t,Y)
+function dY=parallel(t,Y,A)
 dY=zeros(6,1);
 
-A1=0;
-A2=A1;
-
+A2=A; %nondimensional bias voltage
 
 % physical parameters
 R1=8;
@@ -20,7 +18,7 @@ Cd1=26*10^(-12);
 Cd2=1.03*Cd1
 R=d*rho;
 
-% nondimensional params
+% nondimensional parameters
 d=0.12;
 d1=R1/rho;
 d2=R2/rho;
@@ -42,10 +40,10 @@ x2=Y(4);
 y2=Y(5);
 z2=Y(6);
 
-%dynamical system of two tunnel diodes coupld in parallel
+%dynamical system of two tunnel diodes coupled in parallel
 dY(1)=1/eps1*(x1-x1^3/3-y1);
 dY(2)=x1+z1-dL*y1-aL;
-dY(3)=1/gamma*(-B1*z1+B*z2-y1*d+A1);
+dY(3)=1/gamma*(-B1*z1+B*z2-y1*d+A);
 dY(4)=1/eps2*(x2-x2^3/3-y2);
 dY(5)=x2+z2-dL*y2-aL;
-dY(6)=1/gamma*(-B2*z2+B*z1-y2*d+A2);
+dY(6)=1/gamma*(-B2*z2+B*z1-y2*d+A);
