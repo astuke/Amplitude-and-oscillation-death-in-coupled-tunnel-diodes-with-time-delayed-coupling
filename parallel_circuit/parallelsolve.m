@@ -1,4 +1,7 @@
-[t,Y]=ode45(@(t,Y) parallel(t,Y,A),[0, 10],[ 0 1 -1 1 1 0]); %solves the system of dynamical equations in parallel.m
+tspan=[0, 10] %start and end point for integrator
+IC=[0 1 -1 1 1 0] %initial conditions 
+
+[t,Y]=ode45('parallel',tspan,IC); %solves the system of dynamical equations in parallel.m
 
 y1=Y(:,1);
 y2=Y(:,2);
