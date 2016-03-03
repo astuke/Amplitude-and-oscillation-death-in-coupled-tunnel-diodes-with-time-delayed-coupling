@@ -1,5 +1,6 @@
 function dY=single(t,Y,eps,a,d,gamma)
 dY=zeros(3,1); 
+%parameters
 a=0;
 rho=86;
 RL=1;
@@ -17,7 +18,7 @@ z=Y(3);
 
 [x y z]
     
-dY(1)=1/eps*(x-x^3/3-y);
+dY(1)=1/eps*(x-x^3/3-y); %dynamical eqations describing circuit with one tunnel diode
 dY(2)=x+z-dL*y-aL;
 dY(3)=1/gamma*(a-z-d*y);
 
