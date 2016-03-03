@@ -1,5 +1,7 @@
-sol=dde23('seriesdelay',[12 12], [-1.4387   -0.1935    1.7328   -1.2947    0.7604   -0.3867], [0, 40]);
-%solves the system of delayed dynamical equations in seriesdelay.m
+tspan=[0, 40] %start and end point for integrator
+IC=[-1.4387   -0.1935    1.7328   -1.2947    0.7604   -0.3867] %initial conditions
+Z=[12 12] % delay times
+sol=dde23('seriesdelay',Z, IC,tspan); %solves the system of delayed dynamical equations in seriesdelay.m
 
 y1=sol.y(1,:);
 y2=sol.y(2,:);
