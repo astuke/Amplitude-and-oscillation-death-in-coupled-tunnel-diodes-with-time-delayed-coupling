@@ -30,7 +30,7 @@ B2=(d*(d+d1))/D;
 
 figure(4); clf;
 hold on
-for A1=[-0.5:0.001:0.5] "A1" is the nondimensional input voltage --> find fixed points as a function of input voltage
+for A1=[-0.5:0.001:0.5] %"A1" is the nondimensional input voltage --> find fixed points as a function of input voltage
     A2=A1;
     options=optimset(@fsolve);
     options=optimset(options, 'Display', 'final');
