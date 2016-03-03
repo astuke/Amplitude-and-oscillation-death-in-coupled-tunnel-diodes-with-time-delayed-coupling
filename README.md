@@ -7,3 +7,10 @@ These matlab codes simulate the dynamics of electric circuits consisting of tunn
 - two tunnel diodes coupled in parallel (with an without a time-delayed coupling)
 
 In the series and parallel circuits, two principally different dynamics were found, depending on the value of the input voltage: For low and high input voltage, the tunnel diodes respond with a constant current signal, but behave differently from each other, forming so called multistable current branches as in semiconductor superlattices. For medium input voltage, the tunnel diodes are synchronized and respond with oscillating current signals, forming so called excitation blocks similar to neural networks.  
+
+For each configuration, one can simulate
+- the current through the tunnel diodes and the voltages across internal and external capacitor as a function of time
+- calculate the fixed points of the system 
+- calculate the stability of the fixed points
+
+
