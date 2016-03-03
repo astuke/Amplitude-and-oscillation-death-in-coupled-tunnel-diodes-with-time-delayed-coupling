@@ -1,7 +1,4 @@
-function parallelsolve()
-
-for A=-10:10 % A corresponds to the input voltage
-[t,Y]=ode45(@(t,Y) parallel(t,Y,A),[0, 10],[ 0 1 -1 1 1 0]);
+[t,Y]=ode45(@(t,Y) parallel(t,Y,A),[0, 10],[ 0 1 -1 1 1 0]); %solves the system of dynamical equations in parallel.m
 
 y1=Y(:,1);
 y2=Y(:,2);
@@ -36,5 +33,4 @@ box on;
 grid on;
 rotate3d on;
 
-end
-end
+
