@@ -1,4 +1,4 @@
-[t,Y]=ode45('singlediode',[0, 8000],[1 0 -1]); %solve the system of dynamical equations in the function 'singlediode'
+[t,Y]=ode45('singlediode',[0, 8000],[1 0 -1]); %solves the system of dynamical equations in single.m
 
 y1=Y(:,1);
 y2=Y(:,2);
