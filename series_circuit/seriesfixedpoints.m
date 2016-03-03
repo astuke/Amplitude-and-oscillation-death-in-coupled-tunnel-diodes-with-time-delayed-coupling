@@ -1,7 +1,5 @@
-
+% physical parameters
 d=0.01;
-
-% physical params
 rho=86;
 RL=1; 
 R=d*rho;
@@ -14,16 +12,17 @@ C=56*10^(-12);
 Cd1=26*10^(-12);
 Cd2=1.1*Cd1;
 
-% nondimensional params
+% nondimensional parameters
 dL=RL/rho;
 eps=(rho*rho*Cd1)/Ld;
 gamma=R*C*rho/Ld;
 
 
 figure(2); clf;
-for a=[-3:0.01:3]
+for a=[-3:0.01:3] % "a" is the nondimensional input voltage --> find fixed points as a function of input voltage
     options=optimset(@fsolve);
     options=optimset(options, 'Display', 'final');
+    %solves system of equations of the form A(x)=0 which corresponds to finding the fixed points of the system
     [y, fval, exitflag]=fsolve(@(Y) [1/eps*(Y(1)-Y(1)^3/3-Y(2)), Y(1)+Y(3)-dL*Y(2)-aL, 1/gamma*(a-Y(3)-Y(6)-d*Y(2)), 1/eps*(Y(4)-Y(4)^3/3-Y(5)), Y(4)+Y(6)-dL*Y(5)-aL, 1/gamma*(a-Y(6)-Y(3)-d*Y(5))],[1 0 0 -1 0 1], options)
     plot(a,y(3),'.','Markersize', 5);
     set(gca, 'XLim',[-2.5, 2.5], 'YLim', [-2.5, 2.5], 'FontSize', 30);
@@ -40,22 +39,3 @@ for a=[-3:0.01:3]
     box on;
 end
 
-%figure(2);
-%for a=[-3:0.1:3]
-  %y=fsolve(@(Y) [1/eps*(Y(1)-Y(1)^3/3-Y(2)), Y(1)+Y(3)-dL*Y(2)-aL, 1/gamma*(a-Y(3)-Y(6)-d*Y(2)), 1/eps*(Y(4)-Y(4)^3/3-Y(5)), Y(4)+Y(6)-dL*Y(5)-aL, 1/gamma*(a-Y(6)-Y(3)-d*Y(5))],[0 0 0 0 0 0])
-  %A=[1/epsilon*(1-y(1)^2) -1/eps 0; 1 -dL 1; 0 -d/gamma -1/gamma];
-  %lambda=eig(A)
- % plot(a,y(1));
-%end
-
-%figure(2);
-%hold on
-%for a=[-3:0.01:3]
-%    options=optimset(@fsolve);
- %   options=optimset(options, 'Display', 'final');
-  %  [y, fval, exitflag]=fsolve(@(Y) [1/eps*(Y(1)-Y(1)^3/3-Y(2)), Y(1)+Y(3)-dL*Y(2)-aL, 1/gamma*(a-Y(3)-Y(6)-d*Y(2)), 1/eps*(Y(4)-Y(4)^3/3-Y(5)), Y(4)+Y(6)-dL*Y(5)-aL, 1/gamma*(a-Y(6)-Y(3)-d*Y(5))],[10 10 10 -10 -10 -10], options)
-    %A=[1/epsilon*(1-y(1)^2) -1/epsilon 0; 1 -dL 1; 0 -d/gamma -1/gamma];
-    %lambda=eig(A)
-   % plot(a,y(6));
-   % xlabel('a2'); ylabel('z2')
-%end
