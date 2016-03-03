@@ -1,4 +1,4 @@
-function dY=single(t,Y,eps,a,d,gamma)
+function dY=singlediode(t,Y,eps,a,d,gamma)
 dY=zeros(3,1); 
 %parameters
 a=0;
