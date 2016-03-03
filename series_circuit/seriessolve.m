@@ -1,4 +1,7 @@
-[t,Y]=ode45('series',[0, 25],[  1.9861   -0.6243   -1.9837   -0.7906   -0.6350    0.7892]); %solves the system of dynamical equations in series.m
+tspan=[0, 25] %start and end point for integrator
+IC=[1.9861   -0.6243   -1.9837   -0.7906   -0.6350    0.7892] %initial conditions 
+
+[t,Y]=ode45('series',tspan,IC); %solves the system of dynamical equations in series.m
 
 y1=Y(:,1);
 y2=Y(:,2);
