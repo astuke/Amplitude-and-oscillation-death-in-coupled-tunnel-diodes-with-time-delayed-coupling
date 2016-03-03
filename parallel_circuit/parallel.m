@@ -1,4 +1,4 @@
-function dY=parallel(t,Y,A)
+function dY=parallel(t,Y,A) %solve with parallelsolve.m
 dY=zeros(6,1);
 
 A2=A; %nondimensional bias voltage
@@ -33,17 +33,18 @@ B1=(d*(d+d2))/D;
 B2=(d*(d+d1))/D;
 V0=((A1+(I0*R)/K)*K*D)/(d*d2)+Vd0;
 
-x1=Y(1);
-y1=Y(2);
-z1=Y(3);
-x2=Y(4);
-y2=Y(5);
-z2=Y(6);
+%6 variables (3 for each tunnel diode):
+x1=Y(1); %voltage across internal capacitor of first TD
+y1=Y(2); %current through first TD 
+z1=Y(3); %voltage across external capacitor of first TD
+x2=Y(4); %voltage across internal capacitor of second TD 
+y2=Y(5); %current through second TD 
+z2=Y(6); %voltage across external capacitor of second TD
 
 %dynamical system of two tunnel diodes coupled in parallel
-dY(1)=1/eps1*(x1-x1^3/3-y1);
-dY(2)=x1+z1-dL*y1-aL;
-dY(3)=1/gamma*(-B1*z1+B*z2-y1*d+A);
-dY(4)=1/eps2*(x2-x2^3/3-y2);
-dY(5)=x2+z2-dL*y2-aL;
-dY(6)=1/gamma*(-B2*z2+B*z1-y2*d+A);
+dY(1)=1/eps1*(x1-x1^3/3-y1); 
+dY(2)=x1+z1-dL*y1-aL; 
+dY(3)=1/gamma*(-B1*z1+B*z2-y1*d+A); 
+dY(4)=1/eps2*(x2-x2^3/3-y2); 
+dY(5)=x2+z2-dL*y2-aL; 
+dY(6)=1/gamma*(-B2*z2+B*z1-y2*d+A); 
