@@ -22,13 +22,10 @@ figure(2); clf;
 for a=[-3:0.01:3] % "a" is the nondimensional input voltage --> find fixed points as a function of input voltage
     options=optimset(@fsolve);
     options=optimset(options, 'Display', 'final');
-    %solves system of equations of the form A(x)=0 which corresponds to finding the fixed points of the system
+    %solves system of equations of the form f(x)=0 which corresponds to finding the fixed points of the system
     [y, fval, exitflag]=fsolve(@(Y) [1/eps*(Y(1)-Y(1)^3/3-Y(2)), Y(1)+Y(3)-dL*Y(2)-aL, 1/gamma*(a-Y(3)-Y(6)-d*Y(2)), 1/eps*(Y(4)-Y(4)^3/3-Y(5)), Y(4)+Y(6)-dL*Y(5)-aL, 1/gamma*(a-Y(6)-Y(3)-d*Y(5))],[1 0 0 -1 0 1], options)
     plot(a,y(3),'.','Markersize', 5);
     set(gca, 'XLim',[-2.5, 2.5], 'YLim', [-2.5, 2.5], 'FontSize', 30);
-    %set(legend, 'FontSize', 20);
-    %set(h, 'Fontsize', 40);
-    %set(g, 'Fontsize', 40);
     hold on
     plot(a,y(6),'.','Markersize', 5);
     j=xlabel('a2'); k=ylabel('z_1, z_2');
