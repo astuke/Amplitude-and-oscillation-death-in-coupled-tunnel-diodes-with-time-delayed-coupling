@@ -1,4 +1,4 @@
-# Circuit_of_tunnel_diodes
+# Circuit_tunnel_diodes
 
 These matlab codes simulate the dynamics of electric circuits consisting of tunnel diodes combined with reactive circuit components (resistancs and capacitances), forming electronic oscillators which converts direct current from a power supply to an alternating current signal. Each tunnel diode is modeled by an N-shaped current-voltage characteristic with a region of negative differential conductance. The tunnel diodes are arranged in different configurations:
 
